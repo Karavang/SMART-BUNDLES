@@ -1,6 +1,8 @@
 body {
   background: #f5f5f5;
   font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 p {
   color: #13275f;
@@ -8,6 +10,7 @@ p {
   font-weight: 700;
   margin: 0;
 }
+
 input {
   border: none;
   background: transparent;
@@ -25,6 +28,91 @@ button {
   margin: 0 10px;
   cursor: pointer;
 }
+.header {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  .top,
+  .bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    ul {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      li {
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .top {
+    background: #13275f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 64px 16px 32px;
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 32px;
+      li {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        svg {
+          fill: white;
+          padding-right: 12px;
+        }
+        text-align: center;
+        a {
+          color: white;
+          font-size: 20px;
+          font-weight: 400;
+        }
+      }
+    }
+    .language {
+      li {
+        a {
+          &.active {
+            color: #90b53f;
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    background: white;
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      li {
+        a {
+          text-align: center;
+          color: #13275f;
+          font-size: 24px;
+          font-weight: 400;
+        }
+      }
+    }
+    b {
+      width: 10%;
+
+      color: #13275f;
+      font-size: 36px;
+      font-weight: bolder;
+      word-wrap: break-word;
+      padding: 16px 64px 16px 0;
+    }
+  }
+}
 .hero {
   padding: 0;
   margin: 0;
@@ -33,12 +121,22 @@ button {
   .quad {
     background: #13275f;
     width: 13%;
+    display: flex;
+
+    justify-content: center;
+    p {
+      padding-top: 25%;
+      color: white;
+      margin: 0;
+      font-size: 22px;
+      line-height: 28px;
+      font-weight: 700;
+    }
   }
   .photo {
     width: 11%;
   }
   .listData {
-    width: 100%;
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;

@@ -2,7 +2,7 @@ interface ProfileState {
   country: string;
   address: string;
   postcode: string;
-  idCode: number;
+  idCode: string;
   birthday: string;
   idPhoto: string;
   facebook: string;
@@ -17,7 +17,7 @@ export const useProfileStore = defineStore("profile", {
     country: "",
     address: "",
     postcode: "",
-    idCode: 0,
+    idCode: "",
     birthday: "",
     idPhoto: "",
     facebook: "",

@@ -1,6 +1,6 @@
 <template>
   <div class="hero defBorder">
-    <div class="quad"></div>
+    <div class="quad"><p>Test R</p></div>
     <div class="camera">
       <svg
         version="1.1"

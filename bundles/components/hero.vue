@@ -1,5 +1,5 @@
 <template>
-  <div class="hero">
+  <div class="hero defBorder">
     <div class="quad"></div>
     <div class="camera">
       <svg
@@ -14,7 +14,7 @@
         />
       </svg>
     </div>
-    <div class="">
+    <div style="width: 100%">
       <ul class="listData">
         <li>
           <p>Country</p>

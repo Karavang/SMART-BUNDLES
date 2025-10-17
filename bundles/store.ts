@@ -1,10 +1,24 @@
+interface ProfileState {
+  country: string;
+  address: string;
+  postcode: string;
+  idCode: number;
+  birthday: string;
+  idPhoto: string;
+  facebook: string;
+  linkedin: string;
+  phones: string;
+  mobile: string;
+  home: string;
+}
+
 export const useProfileStore = defineStore("profile", {
-  state: () => ({
+  state: (): ProfileState => ({
     country: "",
     address: "",
     postcode: "",
     idCode: 0,
-    birthday: new Date(),
+    birthday: "",
     idPhoto: "",
     facebook: "",
     linkedin: "",
@@ -13,40 +27,28 @@ export const useProfileStore = defineStore("profile", {
     home: "",
   }),
 
-  getters: {
-    fullAddress: (state) => {
-      return `${state.address}, ${state.country} ${state.postcode}`;
-    },
-    isProfileComplete: (state) => {
-      return state.country && state.address && state.mobile;
-    },
-  },
-
   actions: {
-    async updateField(field: keyof typeof this.$state, value: string) {
+    updateField<K extends keyof ProfileState>(
+      field: K,
+      value: ProfileState[K],
+    ) {
       this[field] = value;
-
-      // Авто-сохранение на сервер
-      await this.saveToServer();
     },
 
     async loadProfile() {
-      const { data } = await useFetch("/api/profile");
+      const { data } = await useFetch("/api/profile/1");
       if (data.value) {
-        this.$patch(data.value);
+        this.$patch(data.value as Partial<ProfileState>);
       }
     },
 
     async saveToServer() {
-      const { $state } = this;
-      await $fetch("/api/profile", {
-        method: "PUT",
-        body: $state,
-      });
-    },
-
-    reset() {
-      this.$reset();
+      const data = toRaw(this.$state);
+      console.log(data);
+      // await $fetch("/api/profile/1", {
+      //   method: "PUT",
+      //   body: this.$state,
+      // });
     },
   },
 });

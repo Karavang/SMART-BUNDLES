@@ -1,14 +1,14 @@
 <template>
   <input
-    :value="value"
+    :value="profile[title]"
     type="text"
     readonly
     placeholder="need to add"
     @click="
       (e) => {
         e.target.removeAttribute('readonly');
-        $event.target.style.border = 'none';
-        $event.target.style.background = 'transparent';
+        e.target.style.border = 'none';
+        e.target.style.background = 'transparent';
         e.target.focus();
       }
     "
@@ -20,15 +20,17 @@
       }
     "
     @keyup.enter="(e) => e.target.blur()"
-    @change="(e) => sendMessage(e.target.value)"
+    @change="(e) => changeValue(e.target.value)"
   />
 </template>
 <script setup>
-const emit = defineEmits(["sentData"]);
-
-defineProps(["value", "title"]);
-
-function sendMessage(msg) {
-  emit("sentData", { value: msg, title: props.title });
+import { useProfileStore } from "~/store";
+const props = defineProps(["title"]);
+const { title } = props;
+const profile = useProfileStore();
+function changeValue(value) {
+  console.log(props);
+  profile.updateField(title, value);
+  console.log(profile);
 }
 </script>

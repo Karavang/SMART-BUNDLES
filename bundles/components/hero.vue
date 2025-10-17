@@ -18,107 +18,49 @@
       <ul class="listData">
         <li>
           <p>Country</p>
-          <input
-            type="text"
-            placeholder="need to add"
-            :value="country"
-            readonly
-            @click="
-              $event.target.removeAttribute('readonly');
-              $event.target.style.border = 'none';
-              $event.target.style.background = 'transparent';
-              $event.target.focus();
-            "
-            @blur="
-              $event.target.setAttribute('readonly', '');
-              $event.target.style.border = 'none';
-              $event.target.style.background = 'transparent';
-            "
-            @keyup.enter="$event.target.blur()"
-            @change=""
-          />
+          <input-hero title="country" />
         </li>
         <li>
           <p>Address</p>
-          <input-hero
-            :value="address"
-            title="address"
-            @sentData="handleChange"
-          />
+          <input-hero title="address" />
         </li>
         <li>
           <p>Postcode</p>
-          <input-hero
-            :value="postcode"
-            title="postcode"
-            @sentData="handleChange"
-          />
+          <input-hero title="postcode" />
         </li>
         <li>
           <p>ID Code</p>
-          <input-hero
-            :value="idCode"
-            title="idCode"
-            @sentData="handleChange"
-          />
+          <input-hero title="idCode" />
         </li>
         <li>
           <p>Birthday</p>
-          <input-hero
-            :value="birthday"
-            title="birthday"
-            @sentData="handleChange"
-          />
+          <input-hero title="birthday" />
         </li>
         <li>
           <p>ID Photo</p>
-          <input-hero
-            :value="idPhoto"
-            title="idPhoto"
-            @sentData="handleChange"
-          />
+          <input-hero title="idPhoto" />
         </li>
         <li>
           <p>Facebook</p>
-          <input-hero
-            :value="facebook"
-            title="facebook"
-            @sentData="handleChange"
-          />
+          <input-hero title="facebook" />
         </li>
         <li>
           <p>Linkedin</p>
 
-          <input-hero
-            :value="linkedin"
-            title="linkedin"
-            @sentData="handleChange"
-          />
+          <input-hero title="linkedin" />
         </li>
         <li></li>
         <li>
           <p>Phones</p>
-          <input-hero
-            :value="phones"
-            title="phones"
-            @sentData="handleChange"
-          />
+          <input-hero title="phones" />
         </li>
         <li>
           <p>Mobile</p>
-          <input-hero
-            :value="mobile"
-            title="mobile"
-            @sentData="handleChange"
-          />
+          <input-hero title="mobile" />
         </li>
         <li>
           <p>Home</p>
-          <input-hero
-            :value="home"
-            title="home"
-            @sentData="handleChange"
-          />
+          <input-hero title="home" />
         </li>
       </ul>
       <ul class="list-check">
@@ -165,7 +107,7 @@
           />
           <label for="other">Other</label>
         </li>
-        <button @click="">Save</button>
+        <button @click="profile.saveToServer()">Save</button>
       </ul>
     </div>
   </div>
@@ -174,13 +116,10 @@
 <script>
 export default {
   name: "Hero",
-
-  setup(props) {
-    console.log(props.title);
-  },
 };
-function handleChange(msg) {
-  console.log(msg);
-}
-function sendData(msg) {}
+</script>
+<script setup>
+import { useProfileStore } from "~/store";
+
+const profile = useProfileStore();
 </script>

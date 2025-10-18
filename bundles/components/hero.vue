@@ -29,23 +29,18 @@ onMounted(async () => {
     <div style="width: 100%">
       <ul class="listData">
         <li>
-          <p>Country</p>
           <input-hero title="country" />
         </li>
         <li>
-          <p>Address</p>
           <input-hero title="address" />
         </li>
         <li>
-          <p>Postcode</p>
           <input-hero title="postcode" />
         </li>
         <li>
-          <p>ID Code</p>
           <input-hero title="idCode" />
         </li>
         <li>
-          <p>Birthday</p>
           <input-hero title="birthday" />
         </li>
         <li>
@@ -63,25 +58,19 @@ onMounted(async () => {
           </p>
         </li>
         <li>
-          <p>Facebook</p>
           <input-hero title="facebook" />
         </li>
         <li>
-          <p>Linkedin</p>
-
           <input-hero title="linkedin" />
         </li>
         <li></li>
         <li>
-          <p>Phones</p>
           <input-hero title="phones" />
         </li>
         <li>
-          <p>Mobile</p>
           <input-hero title="mobile" />
         </li>
         <li>
-          <p>Home</p>
           <input-hero title="home" />
         </li>
       </ul>

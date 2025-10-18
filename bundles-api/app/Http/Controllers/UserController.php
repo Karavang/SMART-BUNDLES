@@ -22,17 +22,18 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'country' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'postcode' => 'required|string|max:20',
-            'idCode' => 'required|string|max:50',
-            'birthday' => 'required|string|max:12',
+            'country' => 'nullable|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'postcode' => 'nullable|string|max:20',
+            'idCode' => 'nullable|string|max:50',
+            'birthday' => 'nullable|string|max:12',
             'idPhoto' => 'nullable|string|max:255',
             'facebook' => 'nullable|url|max:255',
             'linkedin' => 'nullable|url|max:255',
             'phones' => 'nullable|string|max:255',
             'mobile' => 'nullable|string|max:255',
             'home' => 'nullable|string|max:255',
+            'interests' => 'nullable|json',
         ]);
 
         if ($validator->fails()) {

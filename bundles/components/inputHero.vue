@@ -1,10 +1,21 @@
+<script setup>
+import { useProfileStore } from "~/store";
+const props = defineProps(["title"]);
+const { title } = props;
+const profile = useProfileStore();
+console.log(profile);
+function changeValue(value) {
+  profile.updateField(title, value);
+}
+</script>
+
 <template>
   <input
     :value="profile[title]"
     type="text"
     readonly
     placeholder="need to add"
-    @click="
+    @focus="
       (e) => {
         e.target.removeAttribute('readonly');
         e.target.style.border = 'none';
@@ -23,14 +34,3 @@
     @change="(e) => changeValue(e.target.value)"
   />
 </template>
-<script setup>
-import { useProfileStore } from "~/store";
-const props = defineProps(["title"]);
-const { title } = props;
-const profile = useProfileStore();
-function changeValue(value) {
-  console.log(props);
-  profile.updateField(title, value);
-  console.log(profile);
-}
-</script>

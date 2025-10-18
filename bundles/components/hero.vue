@@ -1,3 +1,15 @@
+<script setup>
+import { useProfileStore } from "~/store";
+
+defineOptions({
+  name: "Hero",
+});
+const profile = useProfileStore();
+
+onMounted(async () => {
+  await profile.loadProfile();
+});
+</script>
 <template>
   <div class="hero defBorder">
     <div class="quad"><p>Test R</p></div>
@@ -75,61 +87,21 @@
       </ul>
       <ul class="list-check">
         <p>Interests</p>
-        <li>
+        <li
+          v-for="(value, key) in profile.interests"
+          :key="key"
+        >
           <input
             type="checkbox"
-            id="tech"
+            :id="key"
+            v-model="profile.interests[key]"
           />
-          <label for="tech">High-Tech</label>
-        </li>
-        <li>
-          <input
-            type="checkbox"
-            id="medicine"
-          />
-          <label for="medicine">Medicine</label>
-        </li>
-        <li>
-          <input
-            type="checkbox"
-            id="money"
-          />
-          <label for="money">Money</label>
-        </li>
-        <li>
-          <input
-            type="checkbox"
-            id="sentences"
-          />
-          <label for="sentences">Sentences</label>
-        </li>
-        <li>
-          <input
-            type="checkbox"
-            id="independent"
-          />
-          <label for="independent">Independent</label>
-        </li>
-        <li>
-          <input
-            type="checkbox"
-            id="other"
-          />
-          <label for="other">Other</label>
+          <label :for="key">{{
+            key.charAt(0).toUpperCase() + key.slice(1)
+          }}</label>
         </li>
         <button @click="profile.saveToServer()">Save</button>
       </ul>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "Hero",
-};
-</script>
-<script setup>
-import { useProfileStore } from "~/store";
-
-const profile = useProfileStore();
-</script>

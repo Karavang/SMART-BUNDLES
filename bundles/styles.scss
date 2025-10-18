@@ -109,7 +109,7 @@ button {
       font-size: 36px;
       font-weight: bolder;
       word-wrap: break-word;
-      padding: 16px 64px 16px 0;
+      padding: 8px 64px 8px 0;
     }
   }
 }
@@ -133,8 +133,10 @@ button {
       font-weight: 700;
     }
   }
-  .photo {
-    width: 11%;
+  .camera {
+    svg {
+      fill: #13275f;
+    }
   }
   .listData {
     display: grid;
@@ -153,6 +155,10 @@ button {
       align-items: center;
       p {
         text-wrap: nowrap;
+        svg {
+          padding-left: 16px;
+          fill: #90b53f;
+        }
       }
     }
   }

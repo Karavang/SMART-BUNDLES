@@ -26,7 +26,7 @@ class UserController extends Controller
             'address' => 'nullable|string|max:255',
             'postcode' => 'nullable|string|max:20',
             'idCode' => 'nullable|string|max:50',
-            'birthday' => 'nullable|string|max:12',
+            'birthday' => 'nullable|string|max:10',
             'idPhoto' => 'nullable|string|max:255',
             'facebook' => 'nullable|url|max:255',
             'linkedin' => 'nullable|url|max:255',

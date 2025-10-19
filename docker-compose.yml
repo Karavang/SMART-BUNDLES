@@ -1,0 +1,23 @@
+services:
+  frontend:
+    build:
+      context: ./bundles
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+
+  backend:
+    build:
+      context: ./bundles-api
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./bundles-api/database:/var/www/html/database
+    environment:
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /var/www/html/database/database.sqlite

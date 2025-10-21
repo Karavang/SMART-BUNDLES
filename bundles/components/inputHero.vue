@@ -47,32 +47,39 @@ function changeValue(value) {
 </script>
 
 <template>
-  <p :style="{ color: isValid ? '#13275f' : '#D77431' }">
-    {{
-      title === "idCode" ? "ID Code" : title[0].toUpperCase() + title.slice(1)
-    }}
-  </p>
-  <input
-    :value="profile[title]"
-    type="text"
-    readonly
-    placeholder="need to add"
-    @focus="
-      (e) => {
-        e.target.removeAttribute('readonly');
-        e.target.style.border = 'none';
-        e.target.style.background = 'transparent';
-        e.target.focus();
-      }
-    "
-    @blur="
-      (e) => {
-        e.target.setAttribute('readonly', '');
-        e.target.style.border = 'none';
-        e.target.style.background = 'transparent';
-      }
-    "
-    @keyup.enter="(e) => e.target.blur()"
-    @change="(e) => changeValue(e.target.value)"
-  />
+  <li
+    :style="{
+      'border-bottom': isValid ? 'none' : '1px solid #DBDCDD',
+      padding: isValid ? '8px 0' : '7px 0',
+    }"
+  >
+    <p :style="{ color: isValid ? '#13275f' : '#D77431' }">
+      {{
+        title === "idCode" ? "ID Code" : title[0].toUpperCase() + title.slice(1)
+      }}
+    </p>
+    <input
+      :value="profile[title]"
+      type="text"
+      readonly
+      placeholder="need to add"
+      @focus="
+        (e) => {
+          e.target.removeAttribute('readonly');
+          e.target.style.border = 'none';
+          e.target.style.background = 'transparent';
+          e.target.focus();
+        }
+      "
+      @blur="
+        (e) => {
+          e.target.setAttribute('readonly', '');
+          e.target.style.border = 'none';
+          e.target.style.background = 'transparent';
+        }
+      "
+      @keyup.enter="(e) => e.target.blur()"
+      @change="(e) => changeValue(e.target.value)"
+    />
+  </li>
 </template>

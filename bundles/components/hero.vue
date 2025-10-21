@@ -28,21 +28,16 @@ onMounted(async () => {
     </div>
     <div style="width: 100%">
       <ul class="listData">
-        <li>
-          <input-hero title="country" />
-        </li>
-        <li>
-          <input-hero title="address" />
-        </li>
-        <li>
-          <input-hero title="postcode" />
-        </li>
-        <li>
-          <input-hero title="idCode" />
-        </li>
-        <li>
-          <input-hero title="birthday" />
-        </li>
+        <input-hero title="country" />
+
+        <input-hero title="address" />
+
+        <input-hero title="postcode" />
+
+        <input-hero title="idCode" />
+
+        <input-hero title="birthday" />
+
         <li>
           <p>ID Photo</p>
           <p>
@@ -57,22 +52,18 @@ onMounted(async () => {
             </svg>
           </p>
         </li>
-        <li>
-          <input-hero title="facebook" />
-        </li>
-        <li>
-          <input-hero title="linkedin" />
-        </li>
+
+        <input-hero title="facebook" />
+
+        <input-hero title="linkedin" />
+
         <li></li>
-        <li>
-          <input-hero title="phones" />
-        </li>
-        <li>
-          <input-hero title="mobile" />
-        </li>
-        <li>
-          <input-hero title="home" />
-        </li>
+
+        <input-hero title="phones" />
+
+        <input-hero title="mobile" />
+
+        <input-hero title="home" />
       </ul>
       <ul class="list-check">
         <p>Interests</p>
